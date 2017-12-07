@@ -11,7 +11,7 @@ export default {
   props: [name],
   data () {
     return {
-      meanu: [topic]
+      meanu: ['topic']
     }
   }
 }
