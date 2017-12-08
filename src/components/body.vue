@@ -1,6 +1,6 @@
 <template>
   <div class="my-body">
-    body
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,14 +9,15 @@ export default {
   name: 'body',
   data () {
     return {
-      data: ''
     }
+  },
+  created () {
+    this.$router.push({name: 'index'})
   }
 }
 </script>
-
 <style scoped>
 .my-body{
-  background-color: green;
+  font-size: 14px;
 }
 </style>
