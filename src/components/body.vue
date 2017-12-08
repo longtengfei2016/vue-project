@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { getRoute } from '@/common/common.js'
 export default {
   name: 'body',
   data () {
@@ -12,7 +13,7 @@ export default {
     }
   },
   created () {
-    this.$router.push({name: 'index'})
+    this.$router.push({name: getRoute()})
   }
 }
 </script>

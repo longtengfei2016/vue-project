@@ -1,6 +1,8 @@
 <template>
   <div class="my-header">
-    <div class="left-head">LOGO</div>
+    <div class="left-head">
+      <span class="logo"><img :src="logoSrc" /></span>
+    </div>
     <div class="nav">
       <el-menu :default-active="activeIndex"
         class="menu"
@@ -12,6 +14,8 @@
         :router="useRouter">
         <el-menu-item index="index">首页</el-menu-item>
         <el-menu-item index="topic">文章</el-menu-item>
+        <el-menu-item index="funny">乐趣</el-menu-item>
+        <el-menu-item index="me">关于我</el-menu-item>
     </el-menu>
     </div>
     <div class="right-head">right</div>
@@ -19,24 +23,24 @@
 </template>
 
 <script>
+import { getRoute } from '@/common/common.js'
 export default {
   name: 'header',
   data () {
     return {
-      useRouter: true
+      useRouter: true,
+      logoSrc: require('../static/logo.jpg')
     }
   },
   methods: {
     handleSelect (index, indexPath) {
-      console.log(index)
-      console.log(indexPath)
       this.$router.push({name: index})
       this.$store.commit('changeRouter', index)
     }
   },
   computed: {
     activeIndex () {
-      return !this.$store.routerName ? 'index' : this.$store.routerName
+      return getRoute()
     }
   }
 }
@@ -56,6 +60,15 @@ export default {
   line-height: 80px;
   font-size: 50px;
 }
+.logo{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.logo>img{
+  width: 100%;
+  height: 100%;
+}
 .nav{
   width: 60%;
   height: 100%;
@@ -69,6 +82,7 @@ export default {
   float: left;
 }
 .menu>.el-menu-item{
+  width: 150px;
   height: 80px;
   line-height: 80px;
 }

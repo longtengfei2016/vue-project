@@ -53,3 +53,12 @@ export const getUrlParam = function (url) {
   }
   return resultObj
 }
+export const getRoute = function () {
+  let url = window.location.href
+  let index = url.lastIndexOf('#/')
+  if (!index) {
+    return 'index'
+  } else {
+    return url.substring(index + 2)
+  }
+}
