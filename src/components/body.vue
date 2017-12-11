@@ -19,6 +19,6 @@ export default {
 </script>
 <style scoped>
 .my-body{
-  font-size: 14px;
+  margin: 0 20%;
 }
 </style>
